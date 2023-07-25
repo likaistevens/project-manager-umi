@@ -1,7 +1,7 @@
 import { LinkItemType } from './type';
 import { LinkItem } from './LinkItem';
 import React, { useEffect, useState } from 'react';
-// import { includesByPinyin } from '@/utils';
+import { includesByPinyin } from '@/utils';
 // import {
 //   createToolBoxItem,
 //   deleteToolBoxItem,
@@ -12,16 +12,15 @@ import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { debounce } from 'lodash';
 import { Button, Form, Input, Modal, message } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
+import {
+  createToolBoxItem,
+  deleteToolBoxItem,
+  listToolBoxItem,
+  updateToolBoxItem,
+} from '@/api';
 
 export const ToolBoxList = () => {
-  const [toolBoxList, setToolBoxList] = useState<LinkItemType[]>([
-    {
-      id: '1',
-      title: '111',
-      url: 'www.baidu.com',
-      desc: '百度',
-    },
-  ]);
+  const [toolBoxList, setToolBoxList] = useState<LinkItemType[]>([]);
   const [originList, setOriginList] = useState<LinkItemType[]>([]);
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useLocalStorage<string>('tool_box_search');
@@ -29,14 +28,13 @@ export const ToolBoxList = () => {
 
   const onSearch = debounce((v: string, list?: LinkItemType[]) => {
     if (v) {
-      // const newList = (list || originList).filter((item) => {
-      //   return includesByPinyin(v, {
-      //     title: item.title,
-      //     des: item.desc,
-      //     url: item.url,
-      //   });
-      // });
-      const newList = originList;
+      const newList = (list || originList).filter((item) => {
+        return includesByPinyin(v, {
+          title: item.title,
+          des: item.desc,
+          url: item.url,
+        });
+      });
       setToolBoxList(newList);
     } else {
       setToolBoxList(list || originList);
@@ -44,8 +42,7 @@ export const ToolBoxList = () => {
   }, 300);
 
   const getList = async (v?: string) => {
-    // const data = await listToolBoxItem(v);
-    const data: LinkItemType[] = [];
+    const data = await listToolBoxItem(v);
     if (search) {
       onSearch(search, data);
     } else {
@@ -58,11 +55,11 @@ export const ToolBoxList = () => {
     setOpen(false);
     const fields = form.getFieldsValue(true);
     console.log(fields);
-    // if (fields.id) {
-    //   await updateToolBoxItem(fields);
-    // } else {
-    //   await createToolBoxItem(fields);
-    // }
+    if (fields.id) {
+      await updateToolBoxItem(fields);
+    } else {
+      await createToolBoxItem(fields);
+    }
     getList();
     form.resetFields();
     message.success('操作成功');
@@ -77,8 +74,8 @@ export const ToolBoxList = () => {
       //   status: 'danger',
       // },
       onOk: async () => {
-        // await deleteToolBoxItem({ id: item.id });
-        // getList();
+        await deleteToolBoxItem({ id: item.id });
+        getList();
       },
     });
   };
@@ -111,7 +108,10 @@ export const ToolBoxList = () => {
           onSearch={(v) => {
             onSearch(v);
           }}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => {
+            onSearch(e.target.value);
+            setSearch(e.target.value);
+          }}
           value={search}
         />
         <Button

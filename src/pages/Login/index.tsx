@@ -17,6 +17,7 @@ import { message, Tabs } from 'antd';
 // import type { CSSProperties } from 'react';
 import { useState } from 'react';
 import { history } from '@umijs/max';
+import { login } from '@/api';
 
 type LoginType = 'phone' | 'account';
 
@@ -30,7 +31,7 @@ type LoginType = 'phone' | 'account';
 
 const LoginPage = () => {
   const [loginType, setLoginType] = useState<LoginType>('account');
-
+  const [showError, setShowError] = useState(false);
   return (
     <ProConfigProvider hashed={false}>
       <div style={{ backgroundColor: 'white' }}>
@@ -38,11 +39,23 @@ const LoginPage = () => {
           logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
           title="Github"
           subTitle="全球最大的代码托管平台"
-          onFinish={async (v) => {
-            console.log(v);
-            history.replace('/');
-            return true;
+          onFocus={() => {
+            setShowError(false);
           }}
+          onFinish={async (v) => {
+            try {
+              const res = await login(v);
+              if (res) {
+                history.replace('/');
+                setShowError(false);
+                return true;
+              }
+            } catch {
+              setShowError(true);
+              return false;
+            }
+          }}
+          message={showError && <div className="text-red-500">密码错误</div>}
           //   actions={
           //     <Space>
           //       其他登录方式

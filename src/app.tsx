@@ -1,12 +1,10 @@
 // 运行时配置
-// import RightContent from '@/components/RightContent';
-import { RunTimeLayoutConfig } from '@umijs/max';
+import { RunTimeLayoutConfig, history } from '@umijs/max';
 import UnAccessible from './pages/403';
 import logo from '@/assets/logo.png';
 import { Dropdown } from 'antd';
 import { LoginOutlined, LogoutOutlined } from '@ant-design/icons';
-import { useState } from 'react';
-import { history } from '@umijs/max';
+import { getUserInfo } from './api';
 
 export type InitialState = {
   currentUser?: { name: string; username: string; avatar: string };
@@ -14,13 +12,8 @@ export type InitialState = {
 
 const fetchUserInfo = async () => {
   try {
-    // const data = await WebService.getUsingPost();
-    return {
-      name: 'likai',
-      username: 'likai',
-      avatar:
-        'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-    };
+    const data = await getUserInfo();
+    return data;
   } catch (error) {
     // history.push(loginPath);
   }
@@ -82,21 +75,9 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
         );
       },
     },
-    // location: {
-    //   pathname: '/login',
+    // waterMarkProps: {
+    //   content: initialState?.currentUser?.username,
     // },
-    // menuItemRender: (item, dom) => (
-    //   <div
-    //     onClick={() => {
-    //       setPathname(item.path || '/welcome');
-    //     }}
-    //   >
-    //     {dom}
-    //   </div>
-    // ),
-    waterMarkProps: {
-      content: initialState?.currentUser?.username,
-    },
     unAccessible: <UnAccessible></UnAccessible>,
   };
 };

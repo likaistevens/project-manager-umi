@@ -1,6 +1,9 @@
 {
   "extends": "./src/.umi/tsconfig.json",
   "compilerOptions": {
+    // "paths": {
+    //   "@/*": ["src/*"]
+    // },
     "moduleResolution": "node",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": false //是否开启ts文件系统大小写敏感
