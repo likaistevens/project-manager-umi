@@ -1,0 +1,14 @@
+/** 
+ * 此文件为全局样式，修改时务必注释说明
+ */
+
+/* PageContainer 组件内边距缩小 */
+.ant-pro-page-container-children-content {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Modal 弹窗标题居中 */
+.ant-modal .ant-modal-title {
+  text-align: center;
+}
