@@ -1,21 +1,26 @@
 // 运行时配置
 // import RightContent from '@/components/RightContent';
 import { RunTimeLayoutConfig } from '@umijs/max';
-import { UserInfoVO, WebService } from '../api';
 import UnAccessible from './pages/403';
 import logo from '@/assets/logo.png';
 import { Dropdown } from 'antd';
-import { LogoutOutlined } from '@ant-design/icons';
+import { LoginOutlined, LogoutOutlined } from '@ant-design/icons';
 import { useState } from 'react';
+import { history } from '@umijs/max';
 
 export type InitialState = {
-  currentUser?: UserInfoVO;
+  currentUser?: { name: string; username: string; avatar: string };
 };
 
 const fetchUserInfo = async () => {
   try {
-    const data = await WebService.getUsingPost();
-    return data;
+    // const data = await WebService.getUsingPost();
+    return {
+      name: 'likai',
+      username: 'likai',
+      avatar:
+        'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+    };
   } catch (error) {
     // history.push(loginPath);
   }
@@ -46,25 +51,30 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
     title: '',
     // rightContentRender: () => <RightContent />,
     avatarProps: {
-      src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+      src: initialState?.currentUser?.avatar || '',
       size: 'small',
-      title: '七妮妮',
+      title: initialState?.currentUser?.username || '',
       render: (props, dom) => {
         return (
           <Dropdown
             menu={{
               items: [
                 {
-                  key: 'logout',
-                  icon: <LogoutOutlined />,
-                  label: '退出登录',
+                  key: 'login',
+                  icon: <LoginOutlined />,
+                  label: '登陆',
                 },
                 {
                   key: 'logout',
                   icon: <LogoutOutlined />,
-                  label: '登  陆',
+                  label: '退出登录',
                 },
               ],
+              onClick: (v) => {
+                if (v.key === 'login') {
+                  history.push('/login');
+                }
+              },
             }}
           >
             {dom}
@@ -85,7 +95,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
     //   </div>
     // ),
     waterMarkProps: {
-      content: initialState?.currentUser?.userId,
+      content: initialState?.currentUser?.username,
     },
     unAccessible: <UnAccessible></UnAccessible>,
   };

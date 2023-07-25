@@ -12,6 +12,8 @@ export default [
     component: 'Login/index',
     icon: 'AlignRightOutlined',
     menuRender: false,
+    hideInMenu: true,
+    hideInBreadcrumb: true,
   },
   { path: '/*', component: '404' },
 ];
