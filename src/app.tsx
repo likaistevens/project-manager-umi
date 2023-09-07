@@ -10,20 +10,10 @@ export type InitialState = {
   currentUser?: { name: string; username: string; avatar: string };
 };
 
-const fetchUserInfo = async () => {
-  try {
-    const data = await getUserInfo();
-    return data;
-  } catch (error) {
-    // history.push(loginPath);
-  }
-  return undefined;
-};
-
 // 全局初始化数据配置，用于 Layout 用户信息和权限初始化
 // 更多信息见文档：https://umijs.org/docs/api/runtime-config#getinitialstate
 export async function getInitialState(): Promise<InitialState> {
-  const currentUser = await fetchUserInfo();
+  const currentUser = await getUserInfo();
 
   return {
     currentUser,

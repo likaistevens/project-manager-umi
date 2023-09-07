@@ -96,8 +96,9 @@ export const ToolBoxList = () => {
 
   return (
     <div
-      className="flex h-full"
+      className="flex"
       style={{
+        height: 'calc(100vh - 140px)',
         flexDirection: 'column',
       }}
     >
@@ -133,7 +134,7 @@ export const ToolBoxList = () => {
         {toolBoxList.map((item) => {
           return (
             <LinkItem
-              key={item.id}
+              key={item.id || item.url}
               item={item}
               onDelete={onDelete}
               onEdit={onEdit}

@@ -7,6 +7,12 @@ export default [
     // access: 'canReadWeb',
   },
   {
+    path: '/tools',
+    name: '工具库',
+    component: 'Tools/index',
+    icon: 'AlignRightOutlined',
+  },
+  {
     path: '/login',
     name: '登陆',
     component: 'Login/index',
