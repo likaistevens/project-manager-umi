@@ -5,6 +5,7 @@ import { css } from '@emotion/css';
 import { useState } from 'react';
 import { Col, Row } from 'antd';
 import { YoudaoNavigate } from './components/YoudaoNavigate';
+import { JsxStyleToCss } from './components/JsxStyleToCss';
 
 const HomePage: React.FC = () => {
   // const { name } = useModel('global');
@@ -16,6 +17,9 @@ const HomePage: React.FC = () => {
         </Col>
         <Col span={8}>
           <YoudaoNavigate />
+        </Col>
+        <Col span={8}>
+          <JsxStyleToCss />
         </Col>
       </Row>
     </PageContainer>
