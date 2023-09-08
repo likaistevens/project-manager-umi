@@ -1,5 +1,5 @@
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
-import { Input } from 'antd';
+import { Button, Input } from 'antd';
 import { useState } from 'react';
 import { o2s } from './utils';
 import cssToJS from 'transform-css-to-js';
@@ -15,42 +15,65 @@ export const JsxStyleToCss = () => {
 
   return (
     <div>
-      <Input.TextArea
-        rows={4}
-        value={jsxStyleStr}
-        onChange={(e) => {
-          console.log(e.target.value);
-          setJsxStyleStr(e.target.value);
-        }}
-      />
-      <div>
-        <ArrowDownOutlined
-          onClick={() => {
-            const res = o2s(jsxStyleStr);
-            setCssStr(res || '');
-          }}
-        />
-        <ArrowUpOutlined
-          onClick={() => {
-            const res = cssToJS(`.main{${cssStr}}`);
-            console.log(res);
-            setJsxStyleStr(
-              res
-                .replaceAll('\n', '')
-                .replaceAll(' ', '')
-                .replace('//.mainmainClass:{', '')
-                .replaceAll(/}/g, '')
-                .replaceAll(/{/g, '')
-                .replaceAll(',', ',\n') || '',
-            );
+      <div className="flex justify-center items-center">
+        <div>jsx：</div>
+        <Input.TextArea
+          rows={4}
+          value={jsxStyleStr}
+          onChange={(e) => {
+            console.log(e.target.value);
+            setJsxStyleStr(e.target.value);
           }}
         />
       </div>
-      <Input.TextArea
-        rows={4}
-        value={cssStr}
-        onChange={(e) => setCssStr(e.target.value)}
-      />
+
+      <div className="flex justify-center pl-8">
+        <Button
+          type="default"
+          className="mr-4"
+          shape="circle"
+          icon={
+            <ArrowDownOutlined
+              size={30}
+              onClick={() => {
+                const res = o2s(jsxStyleStr);
+                setCssStr(res || '');
+              }}
+            />
+          }
+        />
+        <Button
+          type="default"
+          shape="circle"
+          icon={
+            <ArrowUpOutlined
+              size={30}
+              onClick={() => {
+                const res = cssToJS(`.main{${cssStr}}`);
+                console.log(res);
+                setJsxStyleStr(
+                  res
+                    .replaceAll('\n', '')
+                    .replaceAll(' ', '')
+                    .replace('//.mainmainClass:{', '')
+                    .replaceAll(/}/g, '')
+                    .replaceAll(/{/g, '')
+                    .replaceAll(',', ',\n') || '',
+                );
+              }}
+            />
+          }
+        />
+      </div>
+
+      <div className="flex justify-center items-center">
+        <div>css：</div>
+        <Input.TextArea
+          rows={4}
+          value={cssStr}
+          onChange={(e) => setCssStr(e.target.value)}
+        />
+      </div>
     </div>
   );
 };

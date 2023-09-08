@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Col, Row } from 'antd';
 import { YoudaoNavigate } from './components/YoudaoNavigate';
 import { JsxStyleToCss } from './components/JsxStyleToCss';
+import { NavigateBox } from './components/NavigateBox';
 
 const HomePage: React.FC = () => {
   // const { name } = useModel('global');
@@ -15,10 +16,12 @@ const HomePage: React.FC = () => {
         <Col span={8} style={{ paddingRight: 20 }}>
           <ToolBoxList />
         </Col>
-        <Col span={8}>
+        <Col span={10}>
           <YoudaoNavigate />
         </Col>
-        <Col span={8}>
+        <Col span={6}>
+          <NavigateBox></NavigateBox>
+          <div className="w-full h-6"></div>
           <JsxStyleToCss />
         </Col>
       </Row>

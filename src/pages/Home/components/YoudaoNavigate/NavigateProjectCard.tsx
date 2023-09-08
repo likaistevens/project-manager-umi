@@ -1,16 +1,14 @@
-import { YoudaoNavigateItem } from '@/mock/youdaonavigate';
+import {
+  LocalHostKaoyan,
+  OnlineHostKaoyan,
+  YoudaoNavigateItem,
+} from '@/mock/youdaonavigate';
 import { HomeOutlined } from '@ant-design/icons';
 import { Button, Card, Col, Input, Radio, Row } from 'antd';
 import { useState } from 'react';
 
-const DevHostKaoyan = 'hulk.study.youdao.com';
-const OnlineHostKaoyan = 'kaoyan.study.youdao.com';
-
-const TestHostYkt = 'local.study.163.com';
-const OnlineHostYkt = 'study.163.com';
-
-const HostMap: Record<string, string> = {
-  local: DevHostKaoyan,
+const DefaultHostMap: Record<string, string> = {
+  local: LocalHostKaoyan,
   online: OnlineHostKaoyan,
 };
 
@@ -22,7 +20,10 @@ export const NavigateProjectCard = ({ item }: { item: YoudaoNavigateItem }) => {
   ];
   const [port, setPort] = useState(item.port.toString());
   const [env, setEnv] = useState<string>('local');
-  console.log(env);
+  const origin = `${item.protocol || 'http'}://${
+    item[`${env}Host`] || DefaultHostMap[env]
+  }${port && env === 'local' ? ':' + port : ''}`;
+
   return (
     <Card
       key={item.projectName}
@@ -66,11 +67,7 @@ export const NavigateProjectCard = ({ item }: { item: YoudaoNavigateItem }) => {
             <Button
               type="link"
               onClick={() => {
-                window.open(
-                  `http://${HostMap[env]}${
-                    port && env === 'local' ? ':' + port : ''
-                  }${item.path}`,
-                );
+                window.open(`${origin}${item.path}`);
               }}
             >
               <HomeOutlined />
@@ -83,11 +80,7 @@ export const NavigateProjectCard = ({ item }: { item: YoudaoNavigateItem }) => {
                 <Button
                   type="link"
                   onClick={() => {
-                    window.open(
-                      `http://${HostMap[env]}${
-                        port && env === 'local' ? ':' + port : ''
-                      }${p.path}`,
-                    );
+                    window.open(`${origin}${p.path}`);
                   }}
                 >
                   {p.name}

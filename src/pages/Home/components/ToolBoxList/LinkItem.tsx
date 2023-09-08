@@ -39,7 +39,7 @@ export const LinkItem: React.FC<{
           )}
         </div>
 
-        <div style={{ width: 36, flexShrink: 0 }}>
+        {/* <div style={{ width: 36, flexShrink: 0 }}>
           <EditOutlined
             style={{ marginRight: 8 }}
             className="icon-btn"
@@ -57,7 +57,7 @@ export const LinkItem: React.FC<{
               }
             }}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

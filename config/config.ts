@@ -9,7 +9,6 @@ export default defineConfig({
   request: {},
   layout: {},
   base: '/manager/',
-  publicPath: '/manager/',
   outputPath: 'dist/manager',
   targets: {
     ie: 11,
@@ -20,4 +19,5 @@ export default defineConfig({
   jsMinifier: 'terser',
   hash: true,
   postcssLoader: {},
+  favicons: ['/assets/favicon.png'],
 });

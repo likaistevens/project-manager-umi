@@ -1,15 +1,18 @@
 // http://hulk.study.youdao.com:8001/about
 // https://local.study.163.com:8002/kaoyan/curriculum
 // https://study.163.com/kaoyan/curriculum
-const TestHostKaoyan = 'hulk.study.youdao.com';
-const TestHostYkt = 'local.study.163.com';
-const OnlineHostKaoyan = 'kaoyan.study.youdao.com';
-const OnlineHostYkt = 'study.163.com';
+export const LocalHostKaoyan = 'hulk.study.youdao.com';
+export const OnlineHostKaoyan = 'kaoyan.study.youdao.com';
+
+export const LocalHostYkt = 'local.study.163.com';
+export const OnlineHostYkt = 'study.163.com';
 
 export type YoudaoNavigateItem = {
   projectName: string;
-  host?: string;
   port: number;
+  protocol?: string;
+  localHost?: string;
+  onlineHost?: string;
   path: string;
   pathList?: { name: string; path: string }[];
 };
@@ -17,14 +20,13 @@ export type YoudaoNavigateItem = {
 export const youdaoNavigateData: YoudaoNavigateItem[] = [
   {
     projectName: 'front-admin',
-    // host: TestHostKaoyan,
     port: 8000,
     path: '/backend/interactive/question/edit',
+    onlineHost: LocalHostKaoyan,
     pathList: [],
   },
   {
     projectName: 'front-web',
-    // host: TestHostKaoyan,
     port: 8000,
     path: '',
     pathList: [
@@ -36,7 +38,6 @@ export const youdaoNavigateData: YoudaoNavigateItem[] = [
   },
   {
     projectName: 'front-kaoyan',
-    // host: TestHostKaoyan,
     port: 8000,
     path: '',
     pathList: [
@@ -47,8 +48,21 @@ export const youdaoNavigateData: YoudaoNavigateItem[] = [
     ],
   },
   {
+    projectName: 'front-study-web',
+    port: 8000,
+    protocol: 'https',
+    localHost: LocalHostYkt,
+    onlineHost: OnlineHostYkt,
+    path: '/kaoyan',
+    pathList: [
+      {
+        name: 'SEM大课表',
+        path: '/kaoyan/curriculum',
+      },
+    ],
+  },
+  {
     projectName: 'front-h5',
-    // host: TestHostKaoyan,
     port: 8000,
     path: '',
     pathList: [
@@ -60,7 +74,6 @@ export const youdaoNavigateData: YoudaoNavigateItem[] = [
   },
   {
     projectName: 'front-admin-external',
-    // host: TestHostKaoyan,
     port: 8000,
     path: '/external/edit/comment',
   },

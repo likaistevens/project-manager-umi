@@ -4,6 +4,7 @@ import { NavigateProjectCard } from './NavigateProjectCard';
 export const YoudaoNavigate = () => {
   return (
     <div
+      className="px-4"
       style={{
         height: 'calc(100vh - 140px)',
         overflow: 'auto',
