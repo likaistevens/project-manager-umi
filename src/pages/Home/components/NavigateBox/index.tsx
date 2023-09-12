@@ -34,7 +34,7 @@ export const NavigateBox = () => {
                   card.name.includes('evolute')) && <IconEvolute></IconEvolute>}
               </>
             }
-            color={colorList[index % colorList.length]}
+            color={card.color || colorList[index % colorList.length]}
             onClick={() => {
               window.open(card.path);
             }}

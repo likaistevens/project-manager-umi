@@ -20,8 +20,8 @@ export const LinkItem: React.FC<{
           className="flex items-center"
           style={{ width: 'calc(100% - 36px)' }}
         >
-          <Link
-            to={item?.url || ''}
+          <a
+            href={item?.url || ''}
             target="_blank"
             style={{
               fontWeight: item?.title ? 700 : 400,
@@ -29,9 +29,10 @@ export const LinkItem: React.FC<{
               whiteSpace: 'nowrap',
               overflow: 'hidden',
             }}
+            rel="noreferrer"
           >
             {item?.title || item?.url}
-          </Link>
+          </a>
           {item?.desc && (
             <Popover title="" content={<span>{item?.desc}</span>}>
               <QuestionCircleOutlined className="icon-btn" />

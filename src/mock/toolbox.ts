@@ -561,4 +561,32 @@ export const toolBoxData = [
     desc: 'mock',
     __v: 0,
   },
+  {
+    title: 'MDN',
+    url: 'https://developer.mozilla.org/zh-CN/',
+    desc: 'web 文档',
+  },
+  {
+    title: 'flex 布局',
+    url: 'http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html',
+    desc: '阮一峰flex布局',
+  },
+  {
+    title: 'BFC 详解',
+    url: 'https://www.cnblogs.com/chen-cong/p/7862832.html',
+  },
+  {
+    title: '卡颂 掘金主页',
+    url: 'https://juejin.cn/user/1943592291009511',
+    desc: 'react 大佬',
+  },
+  {
+    title: 'react 渲染讲解',
+    url: 'https://blog.renwangyu.com/2022/10/07/react-rerender/',
+  },
+  {
+    title: 'React技术揭秘',
+    url: 'https://react.iamkasong.com/preparation/idea.html#react%E7%90%86%E5%BF%B5',
+    desc: '很全的 react 原理讲解，fiber、diff、render',
+  },
 ];
