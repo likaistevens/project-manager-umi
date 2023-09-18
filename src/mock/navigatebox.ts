@@ -5,12 +5,18 @@ export const navigateBoxData: {
   pathList?: { name: string; path: string }[];
 }[] = [
   {
-    name: '项目confluence',
-    path: 'https://g.hz.netease.com/',
+    name: '考研confluence',
+    path: 'https://confluence.inner.youdao.com/pages/viewpage.action?pageId=188780829',
     color: '#F7BA1E',
+    pathList: [
+      {
+        name: '云课堂web/wap交接',
+        path: 'https://confluence.inner.youdao.com/pages/viewpage.action?pageId=233682572',
+      },
+    ],
   },
   {
-    name: '考研confluence',
+    name: '项目confluence',
     path: 'https://confluence.inner.youdao.com/pages/viewpage.action?pageId=240094807',
     color: '#F7BA1E',
     pathList: [
@@ -54,5 +60,17 @@ export const navigateBoxData: {
   {
     name: '测试用例',
     path: 'https://ydky.evolute-youdao.nie.netease.com/products/studio/board/#/TestTask',
+  },
+  {
+    name: '教务系统',
+    path: 'https://courseop.study.youdao.com/view/util/userInfo/index',
+  },
+  {
+    name: 'ndp自动部署平台',
+    path: 'https://ndp.netease.com/index-new#/product/multi/detail/configs?productId=109',
+  },
+  {
+    name: 'overmind',
+    path: 'http://overmind.hz.netease.com/12/env/list/test',
   },
 ];

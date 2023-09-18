@@ -10,7 +10,7 @@ export const OnlineHostYkt = 'study.163.com';
 export type YoudaoNavigateItem = {
   projectName: string;
   port: number;
-  protocol?: string;
+  protocol?: Record<'local' | 'online', 'https' | 'http'>;
   localHost?: string;
   onlineHost?: string;
   path: string;
@@ -23,6 +23,7 @@ export const youdaoNavigateData: YoudaoNavigateItem[] = [
     port: 8000,
     path: '/backend/interactive/question/edit',
     onlineHost: LocalHostKaoyan,
+    protocol: { local: 'http', online: 'https' },
     pathList: [],
   },
   {

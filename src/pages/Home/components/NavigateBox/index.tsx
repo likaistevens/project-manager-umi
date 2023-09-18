@@ -4,6 +4,7 @@ import { navigateBoxData } from '../../../../mock/navigatebox';
 import {
   BranchesOutlined,
   CheckCircleOutlined,
+  ChromeOutlined,
   RocketOutlined,
 } from '@ant-design/icons';
 import { IconConfluence, IconEvolute, IconGitlab } from './icons';
@@ -13,6 +14,35 @@ export const NavigateBox = () => {
   return (
     <div>
       {navigateBoxData.map((card, index) => {
+        const icon = () => {
+          if (card.path.includes('gitlab') || card.name.includes('gitlab')) {
+            return (
+              <span className="anticon">
+                <IconGitlab size={16}></IconGitlab>
+              </span>
+            );
+          } else if (
+            card.path.includes('confluence') ||
+            card.name.includes('confluence')
+          ) {
+            return (
+              <span className="anticon">
+                <IconConfluence size={16}></IconConfluence>
+              </span>
+            );
+          } else if (
+            card.path.includes('evolute') ||
+            card.name.includes('evolute')
+          ) {
+            return (
+              <span className="anticon">
+                <IconEvolute></IconEvolute>
+              </span>
+            );
+          } else {
+            return <ChromeOutlined />;
+          }
+        };
         const TagComponent = (
           <Tag
             className="mb-2 inline-flex items-center justify-center cursor-pointer"
@@ -20,26 +50,13 @@ export const NavigateBox = () => {
               height: 30,
               fontSize: 14,
             }}
-            icon={
-              <>
-                {(card.path.includes('gitlab') ||
-                  card.name.includes('gitlab')) && (
-                  <IconGitlab size={16}></IconGitlab>
-                )}
-                {(card.path.includes('confluence') ||
-                  card.name.includes('confluence')) && (
-                  <IconConfluence size={16}></IconConfluence>
-                )}
-                {(card.path.includes('evolute') ||
-                  card.name.includes('evolute')) && <IconEvolute></IconEvolute>}
-              </>
-            }
+            icon={icon()}
             color={card.color || colorList[index % colorList.length]}
             onClick={() => {
               window.open(card.path);
             }}
           >
-            <span className="ml-2">{card.name}</span>
+            <span>{card.name}</span>
           </Tag>
         );
         return card.pathList?.length ? (

@@ -5,7 +5,7 @@ import {
 } from '@/mock/youdaonavigate';
 import { HomeOutlined } from '@ant-design/icons';
 import { Button, Card, Col, Input, Radio, Row } from 'antd';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const DefaultHostMap: Record<string, string> = {
   local: LocalHostKaoyan,
@@ -19,10 +19,17 @@ export const NavigateProjectCard = ({ item }: { item: YoudaoNavigateItem }) => {
     { label: 'Online', value: 'online' },
   ];
   const [port, setPort] = useState(item.port.toString());
-  const [env, setEnv] = useState<string>('local');
-  const origin = `${item.protocol || 'http'}://${
+  const [env, setEnv] = useState<'local' | 'online'>('local');
+  const origin = `${item.protocol?.[env] || 'http'}://${
     item[`${env}Host`] || DefaultHostMap[env]
   }${port && env === 'local' ? ':' + port : ''}`;
+
+  useEffect(() => {
+    const storePort = localStorage.getItem(item.projectName);
+    if (storePort) {
+      setPort(storePort);
+    }
+  }, []);
 
   return (
     <Card
@@ -36,7 +43,10 @@ export const NavigateProjectCard = ({ item }: { item: YoudaoNavigateItem }) => {
             <Input
               size="small"
               value={port}
-              onChange={(e) => setPort(e.target.value)}
+              onChange={(e) => {
+                setPort(e.target.value);
+                localStorage.setItem(item.projectName, `${e.target.value}`);
+              }}
               style={{ width: 60 }}
               width={40}
             />

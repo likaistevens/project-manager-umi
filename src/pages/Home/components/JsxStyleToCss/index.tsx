@@ -58,7 +58,8 @@ export const JsxStyleToCss = () => {
                     .replace('//.mainmainClass:{', '')
                     .replaceAll(/}/g, '')
                     .replaceAll(/{/g, '')
-                    .replaceAll(',', ',\n') || '',
+                    .replaceAll(',', ',\n')
+                    .replaceAll(/"([0-9]+)px"/g, '$1') || '',
                 );
               }}
             />
