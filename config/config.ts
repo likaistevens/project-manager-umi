@@ -8,7 +8,7 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {},
-  base: '/',
+  base: '/project-manager-umi/',
   publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   outputPath: 'dist/manager',
   targets: {
