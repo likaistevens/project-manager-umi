@@ -9,6 +9,7 @@ export default defineConfig({
   request: {},
   layout: {},
   base: '/manager/',
+  publicPath: './',
   outputPath: 'dist/manager',
   targets: {
     ie: 11,
