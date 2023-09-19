@@ -9,7 +9,7 @@ export default defineConfig({
   request: {},
   layout: {},
   base: '/manager/',
-  publicPath: './',
+  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   outputPath: 'dist/manager',
   targets: {
     ie: 11,
