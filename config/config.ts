@@ -8,7 +8,7 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {},
-  base: '/manager/',
+  base: '/',
   publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   outputPath: 'dist/manager',
   targets: {
