@@ -73,4 +73,8 @@ export const navigateBoxData: {
     name: 'overmind',
     path: 'http://overmind.hz.netease.com/12/env/list/test',
   },
+  {
+    name: '云课堂穿梭',
+    path: 'http://env-server.edutest.hz.netease.com/front/env/5?group=test',
+  },
 ];
