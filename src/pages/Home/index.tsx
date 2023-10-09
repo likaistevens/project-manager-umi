@@ -5,7 +5,6 @@ import { css } from '@emotion/css';
 import { useState } from 'react';
 import { Col, Row } from 'antd';
 import { YoudaoNavigate } from './components/YoudaoNavigate';
-import { JsxStyleToCss } from './components/JsxStyleToCss';
 import { NavigateBox } from './components/NavigateBox';
 
 const HomePage: React.FC = () => {
@@ -21,8 +20,6 @@ const HomePage: React.FC = () => {
         </Col>
         <Col span={6}>
           <NavigateBox></NavigateBox>
-          <div className="w-full h-6"></div>
-          <JsxStyleToCss />
         </Col>
       </Row>
     </PageContainer>
