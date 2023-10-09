@@ -20,5 +20,5 @@ export default defineConfig({
   jsMinifier: 'terser',
   hash: true,
   postcssLoader: {},
-  favicons: ['/assets/favicon.png'],
+  favicons: ['./assets/favicon.ico'],
 });
