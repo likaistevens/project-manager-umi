@@ -77,4 +77,8 @@ export const navigateBoxData: {
     name: '云课堂穿梭',
     path: 'http://env-server.edutest.hz.netease.com/front/env/5?group=test',
   },
+  {
+    name: '天马分析平台',
+    path: 'https://pegasus-pre.site.youdao.com/#/analysis/list',
+  },
 ];
