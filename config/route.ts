@@ -3,7 +3,7 @@ export default [
     path: '/',
     name: '主页',
     component: 'Home/index',
-    icon: 'AlignRightOutlined',
+    icon: 'HomeOutlined',
     // access: 'canReadWeb',
   },
   {
