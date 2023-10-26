@@ -81,4 +81,8 @@ export const navigateBoxData: {
     name: '天马分析平台',
     path: 'https://pegasus-pre.site.youdao.com/#/analysis/list',
   },
+  {
+    name: '小程序后台',
+    path: 'https://mp.weixin.qq.com/wxamp/wacodepage/getcodepage?token=553852427&lang=zh_CN',
+  },
 ];
