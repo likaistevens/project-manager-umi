@@ -39,6 +39,45 @@ export const NavigateBox = () => {
                 <IconEvolute></IconEvolute>
               </span>
             );
+          } else if (card.path.includes('mp.weixin.qq.com')) {
+            return (
+              <span className="anticon">
+                <img
+                  src="https://res.wx.qq.com/mpres/zh_CN/htmledition/comm_htmledition/images/icon/login/mp_app698610.png"
+                  alt=""
+                  height={16}
+                />
+              </span>
+            );
+          } else if (card.path.includes('taro')) {
+            return (
+              <span className="anticon">
+                <img
+                  src="https://storage.360buyimg.com/pubfree-bucket/taro-docs/c07c6984de/img/logo-taro.png"
+                  alt="Taro logo"
+                  height={16}
+                ></img>
+              </span>
+            );
+          } else if (card.path.includes('umijs')) {
+            return (
+              <span className="anticon">
+                <img
+                  src="https://gw.alipayobjects.com/zos/bmw-prod/598d14af-4f1c-497d-b579-5ac42cd4dd1f/k7bjua9c_w132_h130.png"
+                  alt="UmiJS"
+                  height={16}
+                ></img>
+              </span>
+            );
+          } else if (card.path.includes('iconfont')) {
+            return (
+              <span className="anticon">
+                <img
+                  src="http://img.alicdn.com/imgextra/i4/O1CN01Z5paLz1O0zuCC7osS_!!6000000001644-55-tps-83-82.svg"
+                  height={16}
+                ></img>
+              </span>
+            );
           } else {
             return <ChromeOutlined />;
           }

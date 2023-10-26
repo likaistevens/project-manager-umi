@@ -85,4 +85,20 @@ export const navigateBoxData: {
     name: '小程序后台',
     path: 'https://mp.weixin.qq.com/wxamp/wacodepage/getcodepage?token=553852427&lang=zh_CN',
   },
+  {
+    name: 'IconFont',
+    path: 'https://www.iconfont.cn/manage/index?spm=a313x.manage_type_myicons.i1.db775f1f3.45583a81pdHQbQ&manage_type=myprojects&projectId=4073061&keyword=&project_type=&page=',
+  },
+  {
+    name: 'Taro',
+    path: 'https://taro-docs.jd.com/blog/2020-12-15-taro-3-1-beta#3-%E6%94%AF%E6%8C%81%E9%98%BB%E6%AD%A2%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%BB%91%E5%8A%A8%E7%A9%BF%E9%80%8F',
+  },
+  {
+    name: 'Umi V4',
+    path: 'https://umijs.org/docs/api/config#favicons',
+  },
+  {
+    name: 'Umi V3',
+    path: 'https://v3.umijs.org/docs/html-template',
+  },
 ];
