@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const IconGitlab = ({ size }: { size?: number }) => {
   return (
     <svg
@@ -115,4 +117,55 @@ export const IconConfluence = ({ size }: { size?: number }) => {
 
 export const IconEvolute = ({ size }: { size?: number }) => {
   return <IconConfluence size={16}></IconConfluence>;
+};
+
+export const IconMap: Record<string, React.ReactElement> = {
+  gitlab: (
+    <span className="anticon">
+      <IconGitlab size={16}></IconGitlab>
+    </span>
+  ),
+  confluence: <IconConfluence size={16} />,
+  evolute: <IconEvolute />,
+  'mp.weixin.qq.com': (
+    <img
+      src="https://res.wx.qq.com/mpres/zh_CN/htmledition/comm_htmledition/images/icon/login/mp_app698610.png"
+      alt=""
+      height={16}
+    />
+  ),
+  taro: (
+    <img
+      src="https://storage.360buyimg.com/pubfree-bucket/taro-docs/c07c6984de/img/logo-taro.png"
+      alt="Taro logo"
+      height={16}
+    />
+  ),
+  umijs: (
+    <img
+      src="https://gw.alipayobjects.com/zos/bmw-prod/598d14af-4f1c-497d-b579-5ac42cd4dd1f/k7bjua9c_w132_h130.png"
+      alt="UmiJS"
+      height={16}
+    />
+  ),
+  iconfont: (
+    <img
+      src="http://img.alicdn.com/imgextra/i4/O1CN01Z5paLz1O0zuCC7osS_!!6000000001644-55-tps-83-82.svg"
+      height={16}
+    />
+  ),
+  swagger: (
+    <img
+      height="16"
+      width="16"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAYFBMVEUAAABUfwBUfwBUfwBUfwBUfwBUfwBUfwBUfwBUfwBUfwBUfwBUfwBUfwBUfwB0lzB/n0BfhxBpjyC0x4////+qv4CJp1D09++ft3C/z5/K16/U379UfwDf58/q79+Ur2D2RCk9AAAAHXRSTlMAEEAwn9//z3Agv4/vYID/////////////////UMeji1kAAAD8SURBVHgBlZMFAoQwDATRxbXB7f+vPKnlXAZn6k2cf3A9z/PfOC8IIYni5FmmABM8FMhwT17c9hnhiZL1CwvEL1tmPD0qSKq6gaStW/kMXanVmAVRDUlH1OvuuTINo6k90Sxf8qsOtF6g4ff1osP3OnMcV7d4pzdIUtu1oA4V0DZoKmxmlEYvtDUjjS3tmKmqB+pYy8pD1VPf7jPE0I40HHcaBwnue6fGzgyS5tXIU96PV7rkDWHNLV0DK4FkoKmFpN5oUnvi8KoeA2/JXsmXQuokx0siR1G8tLkN6eB9sLwJp/yymcyaP/TrP+RPmbMMixcJVgTR1aUZ93oGXsgXQAaG6EwAAAAASUVORK5CYII="
+    />
+  ),
+  courseop: (
+    <img
+      height="16"
+      width="16"
+      src="https://oimagec7.ydstatic.com/image?id=-2867625029112634712&amp;product=xue&amp;w=30"
+    ></img>
+  ),
 };
