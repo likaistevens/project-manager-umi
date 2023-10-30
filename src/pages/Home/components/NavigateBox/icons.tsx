@@ -168,4 +168,11 @@ export const IconMap: Record<string, React.ReactElement> = {
       src="https://oimagec7.ydstatic.com/image?id=-2867625029112634712&amp;product=xue&amp;w=30"
     ></img>
   ),
+  notions: (
+    <img
+      height="16"
+      width="16"
+      src="https://www.notion.so/images/favicon.ico"
+    ></img>
+  ),
 };

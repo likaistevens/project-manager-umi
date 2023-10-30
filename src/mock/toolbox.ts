@@ -594,4 +594,9 @@ export const toolBoxData = [
     url: 'https://www.cocservice.top/update/0300-Walls',
     desc: '游戏 COC ',
   },
+  {
+    title: 'planetscale',
+    url: 'https://planetscale.com/pricing',
+    desc: '免费数据库',
+  },
 ];

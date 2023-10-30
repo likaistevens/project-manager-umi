@@ -6,5 +6,6 @@ module.exports = {
     '@typescript-eslint/dot-notation': 0,
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-shadow': 'off',
+    '@typescript-eslint/no-use-before-define': ['error', { variables: false }],
   },
 };

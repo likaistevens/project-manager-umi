@@ -89,6 +89,10 @@ export const navigateBoxData: {
   ],
   [
     {
+      name: 'notions',
+      path: 'https://www.notion.so/5ccdd62b7d90480c95a68dbfcb58fd6e?v=1db96c98903c490e80c22a59beb052d3',
+    },
+    {
       name: '小程序后台',
       path: 'https://mp.weixin.qq.com/wxamp/wacodepage/getcodepage?token=553852427&lang=zh_CN',
     },

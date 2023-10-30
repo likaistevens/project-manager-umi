@@ -13,6 +13,29 @@ export default [
     icon: 'AlignRightOutlined',
   },
   {
+    path: '/hudoudou',
+    name: '胡豆豆相亲档案',
+    component: 'Hudoudou/index',
+    icon: 'AlignRightOutlined',
+  },
+  {
+    path: '/books',
+    name: '本地书库',
+    icon: 'ReadOutlined',
+    routes: [
+      { path: '/books', redirect: '/books/list' },
+      {
+        path: '/books/list',
+        component: 'Books/list',
+        icon: 'ReadOutlined',
+      },
+      {
+        path: '/books/detail',
+        component: 'Books/detail',
+      },
+    ],
+  },
+  {
     path: '/login',
     name: '登陆',
     component: 'Login/index',

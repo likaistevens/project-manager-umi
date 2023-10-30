@@ -21,4 +21,5 @@ export default defineConfig({
   hash: true,
   postcssLoader: {},
   favicons: ['./assets/favicon.ico'],
+  styledComponents: {},
 });
