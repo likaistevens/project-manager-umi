@@ -28,5 +28,9 @@ export default defineConfig({
   },
   // 使用 hash 路由，避免静态部署时刷新页面无法访问页面。 也可以通过 exportStatic 设置
   // history: { type: 'hash' },
-  // exportStatic: true,
+  exportStatic: {
+    extraRoutePaths: () => {
+      return routes.map((r) => r.path);
+    },
+  },
 });
