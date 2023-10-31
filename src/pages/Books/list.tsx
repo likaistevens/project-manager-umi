@@ -10,8 +10,9 @@ const BookList: React.FC = () => {
   const navigate = useNavigate();
   // const { name } = useModel('global');
   useEffect(() => {
-    // console.log('q', modules.keys());
-    console.log(bookList);
+    //   console.log('q', modules.keys());
+    //   console.log(bookList);
+    // console.log(import.meta.url, import.meta.resolve('./'));
   }, []);
 
   return (

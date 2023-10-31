@@ -3,8 +3,8 @@ export const mdCache = {};
 function importAll(r) {
   r.keys().forEach((key) => (mdCache[key] = r(key)));
 }
-
-importAll(require.context('./md', true, /\.md$/));
+// console.log(import.meta.url);
+importAll(require.context('../../../public/books', true, /\.md$/));
 
 export const resolveMdDir = (map: Record<string, string>) => {
   const resMap: Record<string, { title: string; src: string }[]> = {};
