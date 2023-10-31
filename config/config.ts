@@ -1,6 +1,8 @@
 import { defineConfig } from '@umijs/max';
 import routes from './route';
 
+export const GitPageRoot = '/project-manager-umi/';
+
 export default defineConfig({
   antd: {},
   access: {},
@@ -8,9 +10,8 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {},
-  base: process.env.PLATFORM === 'git' ? '/project-manager-umi/' : '/',
-  publicPath:
-    process.env.NODE_ENV === 'production' ? '/project-manager-umi/' : '/',
+  base: process.env.PLATFORM === 'git' ? GitPageRoot : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? GitPageRoot : '/',
   outputPath: 'dist',
   targets: {
     ie: 11,

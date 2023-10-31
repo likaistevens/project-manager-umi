@@ -6,6 +6,7 @@ import Markdown from 'react-markdown';
 import { styled, useLocation, useRouteData } from '@umijs/max';
 import { useRequest } from 'ahooks';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { GitPageRoot } from '../../../config/config';
 // import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const BookDetailPage: React.FC = () => {
@@ -26,7 +27,7 @@ const BookDetailPage: React.FC = () => {
               if (process.env.PLATFORM === 'git') {
                 return url.replace(
                   '/assets/images',
-                  '/project-manager-umi/assets/images',
+                  `${GitPageRoot}assets/images`,
                 );
               } else {
                 return url;
