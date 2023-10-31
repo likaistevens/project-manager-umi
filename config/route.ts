@@ -23,14 +23,14 @@ export default [
     name: '本地书库',
     icon: 'ReadOutlined',
     routes: [
-      { path: '/books', redirect: '/books/list' },
+      { path: '', redirect: '/books/list' },
       {
-        path: '/books/list',
+        path: 'list',
         component: 'Books/list',
         icon: 'ReadOutlined',
       },
       {
-        path: '/books/detail',
+        path: 'detail',
         component: 'Books/detail',
       },
     ],
