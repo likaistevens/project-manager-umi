@@ -3,6 +3,7 @@
   "author": "likai <likaistevens@gmail.com>",
   "scripts": {
     "build": "max build",
+    "build:git": "cross-env PLATFORM=git max build",
     "dev": "max dev",
     "format": "prettier --cache --write .",
     "postinstall": "max setup",
@@ -19,6 +20,7 @@
     "ahooks": "^3.7.6",
     "antd": "^5.0.0",
     "classname": "^0.0.0",
+    "cross-env": "^7.0.3",
     "dayjs": "^1.11.9",
     "immutability-helper": "^3.1.1",
     "moment": "^2.29.4",

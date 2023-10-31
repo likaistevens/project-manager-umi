@@ -8,8 +8,8 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {},
-  base: '/project-manager-umi/',
-  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
+  base: process.env.PLATFORM === 'git' ? '/project-manager-umi/' : '/',
+  // publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   outputPath: 'dist/manager',
   targets: {
     ie: 11,
