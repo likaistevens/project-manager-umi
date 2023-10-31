@@ -22,6 +22,16 @@ const BookDetailPage: React.FC = () => {
       <MarkdownWrapper>
         <div>
           <Markdown
+            urlTransform={(url) => {
+              if (process.env.PLATFORM === 'git') {
+                return url.replace(
+                  '/assets/images',
+                  '/project-manager-umi/assets/images',
+                );
+              } else {
+                return url;
+              }
+            }}
             components={{
               code(props) {
                 const { children, className, node, ...rest } = props;
