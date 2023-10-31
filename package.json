@@ -5,6 +5,7 @@
     "build": "max build",
     "build:git": "cross-env PLATFORM=git max build",
     "dev": "max dev",
+    "dev:git": "cross-env PLATFORM=git max dev",
     "format": "prettier --cache --write .",
     "postinstall": "max setup",
     "prepare": "husky install",

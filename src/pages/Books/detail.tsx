@@ -22,6 +22,7 @@ const BookDetailPage: React.FC = () => {
         <div>
           <Markdown
             urlTransform={(url) => {
+              console.log('url', url, process.env.PLATFORM);
               if (process.env.PLATFORM === 'git') {
                 return url.replace(
                   '/assets/images',

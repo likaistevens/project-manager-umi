@@ -22,6 +22,10 @@ export default defineConfig({
   postcssLoader: {},
   favicons: ['./assets/favicon.ico'],
   styledComponents: {},
+  define: {
+    'process.env.PLATFORM': process.env.PLATFORM,
+    'process.env.NODE_ENV': process.env.NODE_ENV,
+  },
   // 使用 hash 路由，避免静态部署时刷新页面无法访问页面。 也可以通过 exportStatic 设置
   // history: { type: 'hash' },
   // exportStatic: true,
