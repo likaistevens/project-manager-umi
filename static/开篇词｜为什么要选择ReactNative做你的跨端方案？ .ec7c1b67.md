@@ -114,7 +114,7 @@ React Native 老架构通信用的是 JS Bridge，JS Bridge 的通信方式是�
 
 具体你可以看看下面的目录：
 
-![](images/499434/45c912f5bdcdea16fb9a9d344b85efd0.jpg)
+![图片](/assets/images/499434/45c912f5bdcdea16fb9a9d344b85efd0.jpg)
 
 最后，我希望这门课程能够帮到那些曾经和我一样对 React Native 跨端技术充满好奇的人，那些想弄明白如何搭建一套跨端基础设施的人，以及那些希望自己能够冲在技术最前沿的探索和创新的人。
 
